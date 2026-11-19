@@ -1,0 +1,653 @@
+
+/* ===== 1. Reset & Design Tokens ===== */
+/* Paste Option 1 (Modern Academic Indigo) into :root */
+:root {
+  /* Alternating Homepage Bands (Warm Paper & Soft Mist) */
+  --bg-periwinkle: #e3decb;     /* Band 1: Warm Alabaster */
+  --bg-pink: #ecefea;           /* Band 2: Soft Mist Sage */
+  --surface-white: #ffffff;
+  --surface-gray: #e4e4e7;
+
+  /* Typography */
+  --text-dark: #18181b;         /* Deep Ink Slate */
+  --text-muted: #52525b;        /* Warm Stone Gray */
+
+  /* Brand Accent: Midnight Teal + Terracotta Highlight */
+  --btn-dark: #115e59;          /* Deep Midnight Teal */
+  --btn-dark-hover: #134e4a;    /* Darker Teal Hover */
+  --accent-warm: #d97706;       /* Terracotta Gold highlight */
+  --accent-soft: #ccfbf1;       /* Soft Mint-Teal tint */
+
+  /* Status Badges */
+  --badge-green-bg: #dcfce7;
+  --badge-green-text: #15803d;
+  --badge-amber-bg: #fef3c7;
+  --badge-amber-text: #b45309;
+
+  /* Borders & Layout */
+  --border-light: #dcdad3;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --max-width: 1140px;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-dark);
+  background-color: var(--bg-periwinkle);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* Shared centered container rhythm across semantic sections */
+body > header,
+main > section > *,
+footer > * {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== 2. Header / Navigation ===== */
+body > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+}
+
+/* Logo with dark "L" badge */
+body > header > a:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+body > header > a:first-child::before {
+  content: "L";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: var(--btn-dark);
+  color: var(--surface-white);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+body > header nav ul {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+body > header nav a {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: #2d3238;
+  transition: background-color 0.2s ease;
+}
+
+body > header nav a[aria-current="page"],
+body > header nav a:hover {
+  background-color: var(--surface-white);
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+/* Login Button */
+body > header > a:last-child {
+  background-color: var(--btn-dark);
+  color: var(--surface-white);
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+body > header > a:last-child:hover {
+  background-color: var(--btn-dark-hover);
+}
+
+/* ===== 3. Hero Section ===== */
+#hero {
+  background-color: var(--bg-periwinkle);
+  padding: 40px 24px 72px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: center;
+  gap: 48px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+#hero h1 {
+  font-size: 3.1rem;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+
+#hero p {
+  color: #464b65;
+  font-size: 1rem;
+  max-width: 460px;
+  margin-bottom: 28px;
+}
+
+#hero > div > div {
+  display: flex;
+  gap: 12px;
+}
+
+#hero > div > div a {
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+/* Browse Books */
+#hero > div > div a:first-child {
+  background-color: var(--btn-dark);
+  color: var(--surface-white);
+}
+
+#hero > div > div a:first-child:hover {
+  background-color: var(--btn-dark-hover);
+}
+
+/* Register Now */
+#hero > div > div a:last-child {
+  background-color: var(--surface-white);
+  color: var(--text-dark);
+  border: 1px solid var(--text-dark);
+}
+
+#hero > div > div a:last-child:hover {
+  background-color: #f3f4f6;
+}
+
+/* Hero Image / Placeholder Box */
+#hero figure {
+  background-color: var(--surface-gray);
+  height: 300px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+#hero figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== 4. Search Section ===== */
+#search {
+  background-color: var(--bg-pink);
+  padding: 52px 24px;
+}
+
+#search h2,
+#search form {
+  background-color: var(--surface-white);
+  max-width: calc(var(--max-width) - 48px);
+  margin: 0 auto;
+}
+
+#search h2 {
+  padding: 24px 28px 12px;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+#search form {
+  padding: 0 28px 26px;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  display: flex;
+  gap: 10px;
+}
+
+/* Visually hide label while keeping it accessible for screen readers */
+#search label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+#search input[type="search"] {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  outline: none;
+}
+
+#search input[type="search"]:focus {
+  border-color: var(--btn-dark);
+}
+
+#search button {
+  background-color: var(--btn-dark);
+  color: var(--surface-white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#search button:hover {
+  background-color: var(--btn-dark-hover);
+}
+
+#search form a {
+  background-color: #ededed;
+  color: var(--text-dark);
+  border: 1px solid var(--border-light);
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ===== 5. Featured Books ===== */
+#featured-books {
+  background-color: var(--bg-periwinkle);
+  padding: 56px 24px 68px;
+}
+
+#featured-books > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 0;
+}
+
+#featured-books > header h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+#featured-books > header a {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #2d3238;
+}
+
+#featured-books > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+#featured-books article {
+  background-color: var(--surface-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding-bottom: 18px;
+}
+
+#featured-books article img {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 195px;
+  object-fit: cover;
+  background-color: var(--surface-gray);
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* Category label */
+#featured-books article p:first-of-type {
+  grid-column: 1 / -1;
+  padding: 0 18px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+/* Book Title */
+#featured-books article h3 {
+  grid-column: 1 / -1;
+  padding: 2px 18px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* Author */
+#featured-books article p:last-of-type {
+  grid-column: 1 / -1;
+  padding: 0 18px 16px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Available Badge */
+#featured-books article span {
+  margin-left: 18px;
+  justify-self: start;
+  background-color: var(--badge-green-bg);
+  color: var(--badge-green-text);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* View Details Button */
+#featured-books article a {
+  margin-right: 18px;
+  justify-self: end;
+  background-color: #ededed;
+  border: 1px solid #c5c9ce;
+  color: var(--text-dark);
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+#featured-books article a:hover {
+  background-color: #e0e0e0;
+}
+
+/* ===== 6. Categories ===== */
+#categories {
+  background-color: var(--bg-pink);
+  padding: 56px 24px 68px;
+}
+
+#categories h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+#categories ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+#categories li a {
+  display: block;
+  background-color: var(--surface-white);
+  padding: 28px 16px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+#categories li a:hover {
+  transform: translateY(-3px);
+}
+
+/* Circular Document Icon */
+#categories li a::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background-color: #f2f3f5;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' fill='none' viewBox='0 0 24 24' stroke='%2325282a' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'/%3E%3C/svg%3E");
+}
+
+#categories h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+#categories p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* ===== 7. How It Works ===== */
+#how-it-works {
+  background-color: var(--bg-periwinkle);
+  padding: 56px 24px 36px;
+}
+
+#how-it-works h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+#how-it-works ol {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  counter-reset: step-counter;
+}
+
+#how-it-works li {
+  text-align: center;
+  counter-increment: step-counter;
+  padding: 0 8px;
+}
+
+#how-it-works li::before {
+  content: counter(step-counter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 14px;
+  background-color: var(--btn-dark);
+  color: var(--surface-white);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+#how-it-works h3 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+#how-it-works p {
+  font-size: 0.82rem;
+  color: #464b65;
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+/* ===== 8. Stats / Cards ===== */
+#stats {
+  background-color: var(--bg-periwinkle);
+  padding: 20px 24px 68px;
+}
+
+/* Hide redundant heading visually since Figma shows cards directly below steps */
+#stats h2 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+#stats dl {
+  display: grid;
+
+grid-template-columns: repeat(4, 1fr);
+gap: 20px;
+}
+#stats dl > div {
+background-color: var(--surface-white);
+padding: 24px 16px;
+border-radius: var(--radius-md);
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+/* Top Icon per stat card */
+#stats dl > div::before {
+content: "";
+width: 24px;
+height: 24px;
+margin-bottom: 10px;
+background-repeat: no-repeat;
+background-position: center;
+background-size: contain;
+}
+#stats dl > div:nth-child(1)::before {
+background-image: url("data:image/svg+xml,%3Csvg xmlns='w3.org' fill='none' viewBox='0 0 24 24' stroke='%2325282a' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'/%3E%3C/svg%3E");
+}
+#stats dl > div:nth-child(2)::before {
+background-image: url("data:image/svg+xml,%3Csvg xmlns='w3.org' fill='none' viewBox='0 0 24 24' stroke='%2325282a' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'/%3E%3C/svg%3E");
+}
+#stats dl > div:nth-child(3)::before {
+background-image: url("data:image/svg+xml,%3Csvg xmlns='w3.org' fill='none' viewBox='0 0 24 24' stroke='%2325282a' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'/%3E%3C/svg%3E");
+}
+#stats dl > div:nth-child(4)::before {
+background-image: url("data:image/svg+xml,%3Csvg xmlns='w3.org' fill='none' viewBox='0 0 24 24' stroke='%2325282a' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'/%3E%3C/svg%3E");
+}
+/* Number above label */
+#stats dd {
+order: 1;
+font-size: 1.35rem;
+font-weight: 800;
+color: var(--text-dark);
+}
+#stats dt {
+order: 2;
+font-size: 0.82rem;
+color: var(--text-muted);
+margin-top: 2px;
+}
+/* ===== 9. Footer ===== */
+footer {
+background-color: var(--bg-pink);
+padding: 52px 24px 28px;
+display: grid;
+grid-template-columns: 1.6fr 1fr 1fr 1.1fr;
+gap: 32px;
+}
+footer > section h3 {
+font-size: 1.05rem;
+font-weight: 700;
+margin-bottom: 8px;
+}
+footer > section p {
+font-size: 0.85rem;
+color: var(--text-muted);
+max-width: 280px;
+}
+footer h4 {
+font-size: 0.9rem;
+font-weight: 700;
+margin-bottom: 10px;
+}
+footer li,
+footer address p {
+font-size: 0.84rem;
+color: var(--text-muted);
+font-style: normal;
+margin-bottom: 6px;
+}
+footer a:hover {
+color: var(--text-dark);
+text-decoration: underline;
+}
+/* Bottom Copyright Bar */
+footer > p:last-child {
+grid-column: 1 / -1;
+width: 100%;
+margin-top: 20px;
+padding-top: 18px;
+border-top: 1px solid rgba(0, 0, 0, 0.08);
+font-size: 0.78rem;
+color: var(--text-muted);
+}
+/* ===== 10. Responsive Breakpoints ===== */
+@media (max-width: 900px) {
+#hero,
+#featured-books > div,
+#categories ul,
+#how-it-works ol,
+#stats dl,
+footer {
+grid-template-columns: repeat(2, 1fr);
+}
+#hero h1 {
+font-size: 2.3rem;
+}
+}
+@media (max-width: 600px) {
+body > header {
+flex-wrap: wrap;
+gap: 12px;
+}
+body > header nav {
+order: 3;
+width: 100%;
+}
+body > header nav ul {
+justify-content: space-between;
+}
+#hero,
+#featured-books > div,
+#categories ul,
+#how-it-works ol,
+#stats dl,
+footer {
+grid-template-columns: 1fr;
+}
+#search form {
+flex-direction: column;
+}
+}
+
