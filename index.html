@@ -43,6 +43,93 @@
         <img src="images/hero-placeholder.png" alt="Students browsing books in the digital library" />
       </figure>
     </section>
+
+    <!-- 3. Search Section -->
+    <section id="search">
+      <h2>Search Books</h2>
+      <form action="pages/catalog.html" method="GET">
+        <label for="book-search">Search by title, author, or category</label>
+        <input
+          type="search"
+          id="book-search"
+          name="q"
+          placeholder="Search by title, author, or category"
+        />
+        <button type="submit">Search</button>
+        <a href="pages/catalog.html">Filter</a>
+      </form>
+    </section>
+
+    <!-- 4. Featured Books -->
+    <section id="featured-books">
+      <header>
+        <h2>Featured Books</h2>
+        <a href="pages/catalog.html">View Catalog</a>
+      </header>
+
+      <div>
+        <article>
+          <img src="images/book-placeholder.png" alt="Introduction to Physics cover" />
+          <p>Science</p>
+          <h3>Introduction to Physics</h3>
+          <p>Dr. A. Bekele</p>
+          <span>Available</span>
+          <a href="pages/catalog.html">View Details</a>
+        </article>
+
+        <article>
+          <img src="images/book-placeholder.png" alt="Web Development Basics cover" />
+          <p>Tech</p>
+          <h3>Web Development Basics</h3>
+          <p>M. Alemu</p>
+          <span>Available</span>
+          <a href="pages/catalog.html">View Details</a>
+        </article>
+
+        <article>
+          <img src="images/book-placeholder.png" alt="History of Ethiopia cover" />
+          <p>History</p>
+          <h3>History of Ethiopia</h3>
+          <p>T. Girma</p>
+          <span>Available</span>
+          <a href="pages/catalog.html">View Details</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. Categories -->
+    <section id="categories">
+      <h2>Browse by Category</h2>
+
+      <ul>
+        <li>
+          <a href="pages/catalog.html?category=Science">
+            <h3>Science</h3>
+            <p>120 books</p>
+          </a>
+        </li>
+        <li>
+          <a href="pages/catalog.html?category=Tech">
+            <h3>Tech</h3>
+            <p>95 books</p>
+          </a>
+        </li>
+        <li>
+          <a href="pages/catalog.html?category=History">
+            <h3>History</h3>
+            <p>80 books</p>
+          </a>
+        </li>
+        <li>
+          <a href="pages/catalog.html?category=Education">
+            <h3>Education</h3>
+            <p>110 books</p>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    
   </main>
 
 </body>
